@@ -1,0 +1,70 @@
+
+#root {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: #f4f7f8;
+  color: #15324b;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.welcome-card {
+  width: min(100%, 760px);
+  padding: clamp(28px, 6vw, 64px);
+  background: white;
+  border: 1px solid #dce7eb;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgb(21 50 75 / 8%);
+}
+
+.eyebrow {
+  color: #1c617a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+h1 {
+  max-width: 620px;
+  margin: 24px 0 16px;
+  font-size: clamp(36px, 6vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.description {
+  max-width: 540px;
+  color: #607581;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 32px;
+  color: #216e4a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #299764;
+}
