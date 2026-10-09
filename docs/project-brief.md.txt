@@ -1,0 +1,108 @@
+# WattWise — Project Brief
+
+## 1. Project Overview
+
+**WattWise** is a full-stack electricity consumption analysis application designed initially for Indian households.
+
+It allows users to record electricity bills and manual meter readings, understand consumption patterns, identify unusual changes, estimate future consumption when sufficient data is available, and receive AI-generated explanations grounded in verified data.
+
+The project combines full-stack development, data analysis, machine learning, and AI integration.
+
+## 2. Problem Statement
+
+Most households receive electricity bills periodically and may not have access to continuous electricity consumption data. As a result, it can be difficult to understand why consumption changes, determine whether a bill aligns with available meter readings, or estimate future electricity expenses.
+
+WattWise aims to make household electricity data easier to understand by combining bill records, manual meter observations, transparent calculations, and evidence-based insights in one application.
+
+## 3. Target Users
+
+- Indian households that receive periodic electricity bills.
+- Users who want to monitor their electricity consumption.
+- Users who manually record electricity meter readings.
+- Users who want to understand consumption changes using clear evidence.
+
+## 4. Core Features
+
+### A. Monthly Bill Mode
+
+Users can enter:
+- Billing period start and end dates.
+- Billed electricity units in kWh.
+- Bill amount.
+- Opening and closing meter readings, when available.
+- Whether the bill reading is actual or estimated.
+
+### B. Manual Meter Mode
+
+Users can enter:
+- Meter identifier.
+- Reading date and time.
+- Cumulative meter reading in kWh.
+- Optional notes.
+
+WattWise calculates consumption between valid consecutive readings.
+
+### C. Reconciliation
+
+WattWise compares manual reading totals with billed units when the measurement periods and data coverage are suitable.
+
+If the values differ, the application flags the discrepancy for review instead of silently changing either value.
+
+### D. Consumption Dashboard
+
+The dashboard displays:
+- Consumption and bill history.
+- Comparisons between complete billing periods.
+- Meter-reading trends.
+- Data-quality warnings.
+- Unusual consumption patterns when sufficient data exists.
+
+### E. Anomaly Detection and Forecasting
+
+WattWise starts with transparent rules and simple statistical baselines. More advanced machine-learning methods are introduced only after they can be evaluated against test data.
+
+Forecasts must communicate uncertainty and data limitations.
+
+### F. AI Explanations
+
+An LLM explains verified calculations in plain language. It must not invent numerical values, assume an appliance caused a change without evidence, or replace deterministic calculations.
+
+### G. Feedback and Outcome Tracking
+
+Users can provide feedback on insights and record actions they try. Later comparisons must account for incomplete data and other possible influences on consumption.
+
+## 5. Initial Technology Stack
+
+- Frontend: React, Vite, Tailwind CSS, shadcn/ui, React Router, Recharts.
+- Backend: Node.js and Express.
+- Database: PostgreSQL with the `pg` package.
+- Analytics: Python, pandas, NumPy and pytest.
+- Python API: FastAPI and Pydantic.
+- Machine learning: scikit-learn, introduced after baseline evaluation.
+- AI explanations: an LLM API accessed securely through the backend.
+- Development tools: Git, GitHub, an API client, and environment variables.
+
+## 6. Out of Scope for the Initial Version
+
+- Smart-meter hardware or live hardware integrations.
+- Guaranteed electricity savings.
+- Definitive appliance-level identification from aggregate readings alone.
+- Payments or electricity-provider integrations.
+- Complex AI agents or deep-learning models without a demonstrated need.
+
+## 7. Important Data Rules
+
+- A bill is the billing reference; manual readings are additional observations.
+- Only compare values covering compatible periods.
+- Preserve billed units and manually calculated usage separately.
+- Flag missing readings, duplicate timestamps, meter resets, meter replacements, and estimated bills.
+- All calculations must be testable and reproducible.
+- AI explanations must be based on verified backend results.
+
+## 8. Definition of Success
+
+The initial product should allow a user to enter a bill and manual readings, calculate valid consumption intervals, reconcile compatible periods, view consumption trends, and understand any discrepancy.
+
+As the project matures, it should demonstrate evaluated anomaly detection, appropriately qualified forecasting, and evidence-grounded AI explanations.
+
+The project must have clear setup instructions, tests for critical calculations, and a repeatable demonstration using synthetic data.
