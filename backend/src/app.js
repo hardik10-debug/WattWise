@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const propertiesRoutes = require("./routes/properties.routes");
+const metersRoutes = require("./routes/meters.routes");
 
 const healthRoutes = require("./routes/health.routes");
 const dbRoutes = require("./routes/db.routes");
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use("/api/health", healthRoutes);
 app.use("/api/db", dbRoutes);
 app.use("/api/properties", propertiesRoutes);
+app.use("/api/meters", metersRoutes);
 
 // These must remain after your routes.
 app.use(notFound);
