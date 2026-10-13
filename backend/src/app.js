@@ -4,6 +4,7 @@ const propertiesRoutes = require("./routes/properties.routes");
 const metersRoutes = require("./routes/meters.routes");
 const billsRoutes = require("./routes/bills.routes");
 const readingsRoutes = require("./routes/readings.routes");
+const analyticsRoutes = require("./routes/analytics.routes");
 
 const healthRoutes = require("./routes/health.routes");
 const dbRoutes = require("./routes/db.routes");
@@ -25,7 +26,7 @@ app.use("/api/properties", propertiesRoutes);
 app.use("/api/meters", metersRoutes);
 app.use("/api/bills", billsRoutes);
 app.use("/api/readings", readingsRoutes);
-
+app.use("/api/analytics", analyticsRoutes);
 
 // These must remain after your routes.
 app.use(notFound);
