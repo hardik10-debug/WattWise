@@ -1,25 +1,24 @@
 
-import "./App.css";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import DashboardLayout from "./components/layout/DashboardLayout";
+import Overview from "./pages/Overview";
+import Consumption from "./pages/Consumption";
+import Bills from "./pages/Bills";
+import MeterReadings from "./pages/MeterReadings";
 
 function App() {
   return (
-    <main className="app">
-      <section className="welcome-card">
-        <p className="eyebrow">WATTWISE · ELECTRICITY INSIGHTS</p>
-
-        <h1>Understand your electricity consumption.</h1>
-
-        <p className="description">
-          Track monthly bills, record meter readings, and discover
-          consumption patterns with data-driven insights.
-        </p>
-
-        <div className="status">
-          <span className="status-dot" />
-          Project initialized
-        </div>
-      </section>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<DashboardLayout />}>
+          <Route path="/" element={<Overview />} />
+          <Route path="/consumption" element={<Consumption />} />
+          <Route path="/bills" element={<Bills />} />
+          <Route path="/readings" element={<MeterReadings />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
